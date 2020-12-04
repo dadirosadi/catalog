@@ -1,11 +1,12 @@
 import React from 'react';
-// import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import './App.css';
 
 import Header from './components/header/header.component';
+import HomePage from './pages/homepage/homepage.component';
 
 
 class App extends React.Component {
@@ -13,6 +14,9 @@ class App extends React.Component {
     return (
       <div>
         <Header />
+        <Switch>
+          <Route exact path='/' component={HomePage} />
+        </Switch>
       </div>
     );
   }
