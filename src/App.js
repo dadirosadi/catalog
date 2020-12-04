@@ -1,10 +1,30 @@
-import React, { Component } from 'react';
+import React from 'react';
+// import { Switch, Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+
 import './App.css';
 
-class App extends Component {
+import Header from './components/header/header.component';
+
+
+class App extends React.Component {
   render() {
-    return <div className='App'>Hello World</div>;
+    return (
+      <div>
+        <Header />
+      </div>
+    );
   }
 }
 
-export default App;
+const mapStateToProps = createStructuredSelector({
+});
+
+const mapDispatchToProps = dispatch => ({
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
