@@ -12,8 +12,8 @@
   .preview {
     display: flex;
     flex-flow: row wrap;
-    align-content: space-between;
-    justify-content: space-between;
+    align-content: flex-start;
+    justify-content: flex-start;
     padding: 10px;
   }
 }
