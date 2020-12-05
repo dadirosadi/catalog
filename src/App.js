@@ -8,6 +8,7 @@ import './App.css';
 import Header from './components/header/header.component';
 import HomePage from './pages/homepage/homepage.component';
 import CheckoutPage from './pages/checkout/checkout.component';
+import CategoryPage from './pages/category/category.component';
 
 
 class App extends React.Component {
@@ -18,6 +19,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route exact path='/checkout' component={CheckoutPage} />
+          <Route exact path='/:title' component={CategoryPage} />
         </Switch>
       </div>
     );
