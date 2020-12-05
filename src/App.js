@@ -11,9 +11,19 @@ import CheckoutPage from './pages/checkout/checkout.component';
 import CategoryPage from './pages/category/category.component';
 import ProductDetailPage from './pages/detail-product/detail-product.component';
 import Footer from './pages/footer/footer.component';
+import {getShop} from './redux/shop/shop.actions';
+
 
 
 class App extends React.Component {
+  
+  componentDidMount =  () => {
+    fetch('https://my-json-server.typicode.com/dadirosadi/catalogdb/shop').then(res => res.json()).then(data => {
+    this.props.getShop(data);
+   })
+
+  }
+    
   render() {
     return (
       <div>
@@ -31,9 +41,11 @@ class App extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
+
 });
 
 const mapDispatchToProps = dispatch => ({
+  getShop: (data) => dispatch(getShop(data))
 });
 
 export default connect(

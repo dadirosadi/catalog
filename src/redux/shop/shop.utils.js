@@ -1,3 +1,5 @@
 export const findRelatedProduct = (collections, category) => {
-  return collections[category.toLowerCase()]
+  return collections.filter(data => {
+    return data.routeName.toLowerCase() === category.toLowerCase()
+  })
 };
