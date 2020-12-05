@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-
-import CheckoutItem from '../../components/checkout-item/checkout-item.component';
-import StripeCheckoutButton from '../../components/stripe-button/stripe-button.component';
-
 import {
   selectCartItems,
   selectCartTotal
 } from '../../redux/cart/cart.selectors';
 
 import './checkout.styles.scss';
+const CheckoutItem = React.lazy(() => import('../../components/checkout-item/checkout-item.component'));
+const StripeCheckoutButton = React.lazy(() => import('../../components/stripe-button/stripe-button.component'));
+
+
 
 const CheckoutPage = ({ cartItems, total }) => (
   <div className='checkout-page'>

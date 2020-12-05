@@ -1,8 +1,8 @@
 import React from 'react';
-
-import CollectionsOverview from '../../components/collections-overview/collections-overview.component';
 import ImageHeader from '../../assets/header.jpg';
 import './homepage.styles.scss';
+const CollectionsOverview = React.lazy(() => import('../../components/collections-overview/collections-overview.component'));
+
 
 const HomePage = (props) => (
     <>

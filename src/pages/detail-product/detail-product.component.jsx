@@ -19,7 +19,7 @@ const ProductDetailPage = ({ relatedProduct, productDetail, addItem, ...props })
                     </div>
                     <div className="information">
                         <h5>
-                            Home / {relatedProduct[0].title}
+                            Category : {relatedProduct[0][0].title}
                         </h5>
                         <h1>{productDetail.name}</h1>
                         <h1>${productDetail.price}</h1>

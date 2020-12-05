@@ -1,17 +1,18 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import './App.css';
 
-import Header from './components/header/header.component';
-import HomePage from './pages/homepage/homepage.component';
-import CheckoutPage from './pages/checkout/checkout.component';
-import CategoryPage from './pages/category/category.component';
-import ProductDetailPage from './pages/detail-product/detail-product.component';
-import Footer from './pages/footer/footer.component';
 import {getShop} from './redux/shop/shop.actions';
+const Header = React.lazy(() => import('./components/header/header.component'));
+const HomePage = React.lazy(() => import('./pages/homepage/homepage.component'));
+const CheckoutPage = React.lazy(() => import('./pages/checkout/checkout.component'));
+const CategoryPage = React.lazy(() => import('./pages/category/category.component'));
+const ProductDetailPage = React.lazy(() => import('./pages/detail-product/detail-product.component'));
+const Footer = React.lazy(() => import('./pages/footer/footer.component'));
+
 
 
 
@@ -26,7 +27,7 @@ class App extends React.Component {
     
   render() {
     return (
-      <div>
+    <Suspense fallback=''>
         <Header />
         <Switch>
           <Route exact path='/' component={HomePage} />
@@ -35,7 +36,7 @@ class App extends React.Component {
           <Route exact path='/:title/:id' component={ProductDetailPage} />
         </Switch>
         <Footer />
-      </div>
+      </Suspense>
     );
   }
 }
