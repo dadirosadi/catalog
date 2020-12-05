@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCollectionsForPreview } from '../../redux/shop/shop.selectors';
-import CollectionsCategory from '../../components/collections-category/collections-category.component';
 import ImageHeader from '../../assets/header.jpg';
 import './catagory.styles.scss';
+const CollectionsCategory = React.lazy(() => import('../../components/collections-category/collections-category.component'));
 
 const CategoryPage = ({ collections, ...props }) => {
     return (
