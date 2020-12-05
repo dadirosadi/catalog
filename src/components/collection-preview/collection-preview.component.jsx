@@ -4,14 +4,17 @@ import CollectionItem from '../collection-item/collection-item.component';
 
 import './collection-preview.styles.scss';
 
-const CollectionPreview = ({ title, items, history }) => (
+const CollectionPreview = ({ notShow, title, items, ...props }) => (
   <div className='collection-preview'>
-    <h1 className='title' onClick={() => { history.push(`${title.toLowerCase()}`) }}>{title.toUpperCase()}</h1>
+    {
+      notShow || <h1 className='title' onClick={() => { props.history.push(`${title.toLowerCase()}`) }}>{title.toUpperCase()}</h1>
+
+    }
     <div className='preview'>
       {items
         .filter((item, idx) => idx < 4)
         .map(item => (
-          <CollectionItem key={item.id} item={item} />
+          <CollectionItem key={item.id} item={item} {...props} category={title} />
         ))}
     </div>
   </div>

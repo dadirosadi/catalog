@@ -9,6 +9,7 @@ import Header from './components/header/header.component';
 import HomePage from './pages/homepage/homepage.component';
 import CheckoutPage from './pages/checkout/checkout.component';
 import CategoryPage from './pages/category/category.component';
+import ProductDetailPage from './pages/detail-product/detail-product.component';
 
 
 class App extends React.Component {
@@ -20,6 +21,7 @@ class App extends React.Component {
           <Route exact path='/' component={HomePage} />
           <Route exact path='/checkout' component={CheckoutPage} />
           <Route exact path='/:title' component={CategoryPage} />
+          <Route exact path='/:title/:id' component={ProductDetailPage} />
         </Switch>
       </div>
     );
