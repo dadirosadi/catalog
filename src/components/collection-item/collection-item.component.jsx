@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 
 import CustomButton from '../custom-button/custom-button.component';
 import { addItem } from '../../redux/cart/cart.actions';
+import { addProductDetail } from '../../redux/shop/shop.actions';
 
 import './collection-item.styles.scss';
 
-const CollectionItem = ({ item, addItem }) => {
-  const { name, price, imageUrl } = item;
+const CollectionItem = ({ item, addItem, addProductDetail, history, category }) => {
+  const { name, price, imageUrl, id } = item;
 
   return (
     <div className='collection-item'>
@@ -15,6 +16,10 @@ const CollectionItem = ({ item, addItem }) => {
         className='image'
         style={{
           backgroundImage: `url(${imageUrl})`
+        }}
+        onClick={() => {
+          addProductDetail(item, category);
+          history.push(`/${category.toLowerCase()}/${id}`)
         }}
       />
       <div className='collection-footer'>
@@ -29,7 +34,8 @@ const CollectionItem = ({ item, addItem }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  addItem: item => dispatch(addItem(item))
+  addItem: item => dispatch(addItem(item)),
+  addProductDetail: (item, category) => dispatch(addProductDetail(item, category))
 });
 
 export default connect(

@@ -13,7 +13,7 @@ const CategoryPage = ({ collections, ...props }) => {
                 <img className='image' alt="header" src={ImageHeader} />
             </div>
             <div className='shop-page'>
-                <CollectionsCategory title="Try" collections={collections} {...props} />
+                <CollectionsCategory collections={collections} {...props} />
             </div>
         </>
     )
