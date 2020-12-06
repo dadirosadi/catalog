@@ -10,7 +10,7 @@ const FooterPage = () => (
             <p className="desc">Never regret a day in your life, good days give happiness, bad days give experiences, worst day give lessons, and best day give memories</p>
         </div>
         <div>
-            <img className="image" src={ImageFooter} alt="footer" />
+            <img className="image-footer" src={ImageFooter} alt="footer" />
         </div>
 
     </div >
